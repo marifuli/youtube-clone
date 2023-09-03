@@ -30,8 +30,8 @@
         @endif
         @foreach ($videos as $item)
             <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="card">
-                <video controls onloadedmetadata="get(this)" src="/storage/{{ $item->path }}" class="w-100"></video>
+                <a class="card">
+                    <video onloadedmetadata="get(this)" src="/storage/{{ $item->path }}" class="w-100"></video>
                     <h5 class="card-header">
                         {{ $item->name }}
                         <br>
@@ -39,7 +39,7 @@
                             <a href="/home?category={{ $item->category }}">{{ $item->category }}</a>
                         </small>
                     </h5>
-                </div>
+                </a>
             </div>
         @endforeach
         <div class="mt-2">
