@@ -29,9 +29,15 @@
             <h1>Nothing fouond!</h1>
         @endif
         @foreach ($videos as $item)
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <a class="card">
-                    <video onloadedmetadata="get(this)" src="/storage/{{ $item->path }}" class="w-100"></video>
+            <a class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <video onloadedmetadata="get(this)" src="/storage/{{ $item->path }}" class="w-100"
+                        onfocus="this.play()"
+                        onmousemove="this.play()"
+                        ontouchstart="this.play()"
+                        onmouseout="this.stop()"
+                        ontouchend="this.stop()"
+                        ></video>
                     <h5 class="card-header">
                         {{ $item->name }}
                         <br>
@@ -39,8 +45,8 @@
                             <a href="/home?category={{ $item->category }}">{{ $item->category }}</a>
                         </small>
                     </h5>
-                </a>
-            </div>
+                </div>
+            </a>
         @endforeach
         <div class="mt-2">
             {{ $videos->links() }}
