@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
         $files = Media::latest();
         if($request->category) $files->where('category', $request->category);
-        $files = $files->paginate();
+        $files = $files->paginate(1);
         return view('home', [
             'videos' => $files,
         ]);
@@ -40,5 +40,11 @@ class HomeController extends Controller
             ]);
         }
         return back();
+    }
+    function delete(Media $media) 
+    {
+        Storage::delete($media->path);
+        $media->delete();
+        return back();   
     }
 }

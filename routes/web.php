@@ -17,3 +17,4 @@ Route::redirect('/', '/home');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('store');
+Route::get('/delete/{media}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
