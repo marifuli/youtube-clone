@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
         $files = Media::latest();
         if($request->category) $files->where('category', $request->category);
-        $files = $files->paginate(1);
+        $files = $files->paginate();
         return view('home', [
             'videos' => $files,
         ]);
